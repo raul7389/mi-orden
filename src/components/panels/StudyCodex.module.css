@@ -1,0 +1,698 @@
+/* StudyCodex.module.css — El Códice Sagrado */
+
+/* ── PANEL WRAPPER ────────────────────────────────────────────────────── */
+.codex {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 6rem;
+}
+
+/* ── ENCABEZADO ───────────────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: 2rem 1rem 2.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(200, 168, 74, 0.1);
+  position: relative;
+}
+
+.eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #9b7d2e;
+  margin-bottom: 0.8rem;
+  font-family: 'EB Garamond', serif;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  color: #e8dcc8;
+  line-height: 1.05;
+  margin-bottom: 0.8rem;
+}
+
+.title em {
+  font-style: italic;
+  color: #c8a84a;
+}
+
+.ornament {
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  color: #6b5520;
+  margin-bottom: 1.8rem;
+}
+
+/* Barra de progreso */
+.progressWrap {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.progressHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progressLabel {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9b7d2e;
+  font-family: 'EB Garamond', serif;
+}
+
+.progressValue {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #c8a84a;
+  line-height: 1;
+}
+
+.progressTrack {
+  height: 3px;
+  background: rgba(200, 168, 74, 0.08);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #6b5520, #c8a84a);
+  border-radius: 1px;
+  transition: width 0.6s ease;
+}
+
+.progressSub {
+  font-size: 0.7rem;
+  color: rgba(107, 93, 69, 0.7);
+  text-align: right;
+  font-family: 'EB Garamond', serif;
+}
+
+/* ── LAYOUT ───────────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { order: -1; }
+}
+
+/* ── SEPARADORES DE ERA ───────────────────────────────────────────────── */
+.eraSep {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2rem 0 0.8rem;
+}
+
+.eraLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(200, 168, 74, 0.12);
+}
+
+.eraLabel {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6b5520;
+  white-space: nowrap;
+  font-family: 'EB Garamond', serif;
+}
+
+/* ── EXPONENTE (ACORDEÓN) ─────────────────────────────────────────────── */
+.exp {
+  border: 1px solid rgba(200, 168, 74, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.2s;
+  background: rgba(26, 21, 9, 0.6);
+}
+
+.exp:hover { border-color: rgba(200, 168, 74, 0.2); }
+
+.expDone {
+  border-color: rgba(58, 122, 82, 0.25);
+  background: rgba(58, 122, 82, 0.04);
+}
+
+.expHead {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1.1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.expHead:hover {
+  background: rgba(200, 168, 74, 0.03);
+}
+
+.expEra {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b5520;
+  min-width: 50px;
+  font-family: 'EB Garamond', serif;
+}
+
+.expInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.expName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #e8dcc8;
+}
+
+.expDates {
+  font-size: 0.62rem;
+  color: #6b5e45;
+  font-family: 'EB Garamond', serif;
+}
+
+.expBadge {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.45rem;
+  background: rgba(200, 168, 74, 0.08);
+  color: #9b7d2e;
+  border-radius: 1px;
+  white-space: nowrap;
+  font-family: 'EB Garamond', serif;
+}
+
+.expBadgeDone {
+  background: rgba(58, 122, 82, 0.15);
+  color: #52b788;
+}
+
+.expToggle {
+  color: #6b5520;
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Cuerpo del exponente */
+.expBody {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid rgba(200, 168, 74, 0.07);
+}
+
+.expBio {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #6b5e45;
+  padding: 0.8rem 0 0.9rem;
+  border-bottom: 1px solid rgba(200, 168, 74, 0.06);
+  margin-bottom: 0.9rem;
+  line-height: 1.7;
+}
+
+.topicsLabel {
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9b7d2e;
+  margin-bottom: 0.6rem;
+  font-family: 'EB Garamond', serif;
+}
+
+/* ── OBRA (TOPIC SCROLL) ──────────────────────────────────────────────── */
+.topic {
+  border: 1px solid rgba(200, 168, 74, 0.07);
+  border-radius: 1px;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.2s;
+  background: rgba(13, 11, 7, 0.4);
+}
+
+.topic:hover { border-color: rgba(200, 168, 74, 0.15); }
+
+.topicDone {
+  background: rgba(58, 122, 82, 0.05);
+  border-color: rgba(58, 122, 82, 0.18);
+}
+
+.topicMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.65rem 0.8rem;
+}
+
+/* Sello arcano (checkbox) */
+.seal {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200, 168, 74, 0.3);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-top: 0.15rem;
+}
+
+.seal:hover {
+  border-color: #c8a84a;
+  background: rgba(200, 168, 74, 0.08);
+}
+
+.sealDone {
+  background: #3a7a52;
+  border-color: #3a7a52;
+  box-shadow: 0 0 8px rgba(58, 122, 82, 0.35);
+}
+
+.sealMark {
+  font-size: 0.5rem;
+  color: transparent;
+}
+
+.sealDone .sealMark { color: #c8e6c9; }
+
+.topicBody { flex: 1; }
+
+.topicTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.98rem;
+  color: #e8dcc8;
+  margin-bottom: 0.18rem;
+}
+
+.topicDone .topicTitle {
+  color: rgba(232, 220, 200, 0.38);
+  text-decoration: line-through;
+  text-decoration-color: rgba(58, 122, 82, 0.4);
+}
+
+.topicNote {
+  font-size: 0.72rem;
+  color: #6b5e45;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  font-family: 'EB Garamond', serif;
+}
+
+/* Links de acceso */
+.topicLinks {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.scroll {
+  font-size: 0.65rem;
+  color: #9b7d2e;
+  text-decoration: none;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid rgba(200, 168, 74, 0.2);
+  border-radius: 1px;
+  transition: all 0.2s;
+  font-family: 'EB Garamond', serif;
+  letter-spacing: 0.05em;
+}
+
+.scroll:hover {
+  background: #c8a84a;
+  color: #0d0b07;
+  border-color: #c8a84a;
+}
+
+.scrollSecondary {
+  color: #6b5e45;
+  border-color: rgba(200, 168, 74, 0.1);
+}
+
+.scrollSecondary:hover {
+  color: #0d0b07;
+}
+
+/* Acciones */
+.topicActs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem 0.4rem 2.4rem;
+  flex-wrap: wrap;
+}
+
+.actBtn {
+  font-size: 0.62rem;
+  color: rgba(107, 94, 69, 0.7);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.2s;
+  font-family: 'EB Garamond', serif;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.actBtn:hover { color: #c8a84a; }
+
+.noteCount {
+  font-size: 0.56rem;
+  background: rgba(200, 168, 74, 0.12);
+  color: #9b7d2e;
+  padding: 0.08rem 0.3rem;
+  border-radius: 10px;
+}
+
+/* Panel de notas */
+.notesPanel {
+  padding: 0.5rem 0.8rem 0.7rem 2.4rem;
+  border-top: 1px solid rgba(200, 168, 74, 0.06);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.notesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.noteItem {
+  background: rgba(26, 21, 9, 0.6);
+  border: 1px solid rgba(200, 168, 74, 0.07);
+  border-radius: 1px;
+  padding: 0.45rem 0.6rem;
+}
+
+.noteText {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.82rem;
+  color: #b8a882;
+  line-height: 1.55;
+  margin-bottom: 0.2rem;
+}
+
+.noteMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noteDate {
+  font-size: 0.58rem;
+  color: #3d3424;
+  font-family: 'EB Garamond', serif;
+}
+
+.noteDel {
+  background: none;
+  border: none;
+  color: rgba(232, 220, 200, 0.12);
+  cursor: pointer;
+  font-size: 0.62rem;
+  transition: color 0.2s;
+}
+
+.noteDel:hover { color: #7a3a3a; }
+
+.noteInput {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.noteTextarea {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(200, 168, 74, 0.1);
+  border-radius: 1px;
+  color: #e8dcc8;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.6rem;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s;
+  line-height: 1.5;
+}
+
+.noteTextarea:focus {
+  border-color: rgba(200, 168, 74, 0.3);
+}
+
+.noteTextarea::placeholder {
+  color: #3d3424;
+  font-style: italic;
+}
+
+.noteSave {
+  font-size: 0.62rem;
+  color: #c8a84a;
+  border: 1px solid rgba(200, 168, 74, 0.25);
+  background: transparent;
+  border-radius: 1px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'EB Garamond', serif;
+  align-self: flex-start;
+}
+
+.noteSave:hover {
+  background: #c8a84a;
+  color: #0d0b07;
+}
+
+/* ── PANEL LATERAL ────────────────────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 58px;
+}
+
+/* Tabla del día */
+.dayScroll {
+  border: 1px solid rgba(200, 168, 74, 0.14);
+  border-radius: 1px;
+  background: rgba(26, 21, 9, 0.6);
+  overflow: hidden;
+}
+
+.dayHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(200, 168, 74, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dayTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #c8a84a;
+}
+
+.dayDate {
+  font-size: 0.6rem;
+  color: #3d3424;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'EB Garamond', serif;
+}
+
+.dayBody {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dayEmpty {
+  font-size: 0.76rem;
+  color: #3d3424;
+  font-style: italic;
+  text-align: center;
+  padding: 0.6rem 0;
+  font-family: 'EB Garamond', serif;
+}
+
+.dayItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.42rem 0;
+  border-bottom: 1px solid rgba(200, 168, 74, 0.05);
+}
+
+.dayItem:last-child { border-bottom: none; }
+
+.dayItemDone .dayText {
+  text-decoration: line-through;
+  color: rgba(232, 220, 200, 0.22);
+  text-decoration-color: rgba(58, 122, 82, 0.4);
+}
+
+.daySeal {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 168, 74, 0.28);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.25rem;
+}
+
+.daySeal:hover { border-color: #c8a84a; }
+
+.daySealDone {
+  background: #3a7a52;
+  border-color: #3a7a52;
+}
+
+.daySealMark {
+  font-size: 0.4rem;
+  color: transparent;
+}
+
+.daySealDone .daySealMark { color: #c8e6c9; }
+
+.dayText {
+  flex: 1;
+  font-size: 0.76rem;
+  color: rgba(232, 220, 200, 0.6);
+  line-height: 1.45;
+  font-family: 'EB Garamond', serif;
+}
+
+.dayDel {
+  background: none;
+  border: none;
+  color: rgba(232, 220, 200, 0.12);
+  cursor: pointer;
+  font-size: 0.62rem;
+  transition: color 0.2s;
+}
+
+.dayDel:hover { color: #7a3a3a; }
+
+.dayAdd {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+}
+
+.dayInput {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(200, 168, 74, 0.1);
+  border-radius: 1px;
+  color: #e8dcc8;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.76rem;
+  padding: 0.38rem 0.6rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.dayInput:focus { border-color: rgba(200, 168, 74, 0.3); }
+
+.dayInput::placeholder { color: #3d3424; font-style: italic; }
+
+.dayAddBtn {
+  border: 1px solid rgba(200, 168, 74, 0.22);
+  background: transparent;
+  color: #9b7d2e;
+  padding: 0.38rem 0.7rem;
+  cursor: pointer;
+  border-radius: 1px;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.dayAddBtn:hover { background: rgba(200, 168, 74, 0.08); color: #c8a84a; }
+
+/* Estadísticas */
+.statsCard {
+  border: 1px solid rgba(200, 168, 74, 0.1);
+  border-radius: 1px;
+  background: rgba(26, 21, 9, 0.6);
+  padding: 1rem;
+}
+
+.statsTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #c8a84a;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(200, 168, 74, 0.08);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.7rem;
+  border: 1px solid rgba(200, 168, 74, 0.07);
+  border-radius: 1px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.statN {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: #c8a84a;
+  line-height: 1;
+}
+
+.statL {
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3d3424;
+  margin-top: 0.18rem;
+  font-family: 'EB Garamond', serif;
+}

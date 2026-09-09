@@ -1,0 +1,361 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   ORDO MENTIS AUREAE — Sistema Visual Arcano
+   ══════════════════════════════════════════════════════════════════════════
+   Paleta: pergamino oscuro · tinta sepia · oro desvanecido · sombras de vela
+   Tipografía: Cormorant Garamond (display) + EB Garamond (cuerpo)
+   Filosofía: desgaste visible, no diseño limpio. Manuscrito antiguo, no app.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+/* ── TOKENS DE COLOR ────────────────────────────────────────────────────── */
+:root {
+  /* Pergamino oscuro — el fondo del manuscrito */
+  --parchment-deep:    #0d0b07;   /* casi negro, tono cálido */
+  --parchment-mid:     #1a1509;   /* marrón muy oscuro */
+  --parchment-surface: #221b0d;   /* superficie de página */
+  --parchment-raised:  #2a2210;   /* elementos elevados */
+
+  /* Tinta y escritura */
+  --ink-primary:   #e8dcc8;       /* tinta principal — marfil cálido */
+  --ink-secondary: #b8a882;       /* tinta secundaria — sepia claro */
+  --ink-faint:     #6b5e45;       /* tinta casi borrada */
+  --ink-ghost:     #3d3424;       /* texto apenas visible */
+
+  /* Oro desvanecido — los adornos del manuscrito */
+  --gold-bright:   #c8a84a;       /* oro vivo · uso mínimo */
+  --gold-mid:      #9b7d2e;       /* oro envejecido */
+  --gold-dim:      #6b5520;       /* oro oscurecido */
+  --gold-trace:    rgba(200,168,74,.12); /* rastro de oro */
+  --gold-glow:     rgba(200,168,74,.06); /* resplandor de vela */
+
+  /* Bordes — como raspaduras en el pergamino */
+  --border-gold:   rgba(200,168,74,.18);
+  --border-faint:  rgba(200,168,74,.08);
+  --border-ghost:  rgba(200,168,74,.04);
+
+  /* Estados */
+  --seal-done:     #3a7a52;       /* verde musgo — completado */
+  --seal-done-bg:  rgba(58,122,82,.12);
+  --seal-wrong:    #7a3a3a;       /* rojo oscuro — error */
+
+  /* Sombras de vela */
+  --shadow-vela:   0 4px 24px rgba(0,0,0,.55), 0 1px 4px rgba(200,168,74,.06);
+  --shadow-glow:   0 0 18px rgba(200,168,74,.08);
+  --shadow-inner:  inset 0 1px 0 rgba(200,168,74,.06);
+}
+
+/* ── RESET Y BASE ────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--parchment-deep);
+  background-image:
+    /* Ruido de pergamino — textura de desgaste */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  color: var(--ink-primary);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TIPOGRAFÍA ──────────────────────────────────────────────────────────── */
+
+/* Títulos principales — Cormorant Garamond */
+.t-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--ink-primary);
+}
+
+.t-display-xl { font-size: clamp(3rem, 8vw, 6.5rem); }
+.t-display-lg { font-size: clamp(2rem, 5vw, 3.5rem); }
+.t-display-md { font-size: clamp(1.4rem, 3vw, 2rem); }
+.t-display-sm { font-size: 1.2rem; }
+
+/* Subtítulos itálicos — la voz del manuscrito */
+.t-italic {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-secondary);
+}
+
+/* Cuerpo — EB Garamond */
+.t-body   { font-size: .95rem; color: var(--ink-secondary); line-height: 1.8; }
+.t-small  { font-size: .82rem; color: var(--ink-faint); }
+.t-micro  { font-size: .7rem;  color: var(--ink-ghost); letter-spacing: .08em; }
+
+/* Etiquetas arcanas — versalitas espaciadas */
+.t-label {
+  font-size: .62rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  font-family: 'EB Garamond', serif;
+}
+
+/* Oro vivo */
+.t-gold  { color: var(--gold-bright); }
+.t-sepia { color: var(--ink-secondary); }
+
+/* ── ORNAMENTOS Y DIVISORES ──────────────────────────────────────────────── */
+.ornament-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+  opacity: .35;
+  margin: 1.5rem 0;
+}
+
+.ornament-line-short {
+  width: 60px;
+  height: 1px;
+  background: var(--gold-mid);
+  opacity: .5;
+}
+
+.ornament-center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold-dim);
+  font-size: .7rem;
+  letter-spacing: .4em;
+}
+
+.ornament-center::before,
+.ornament-center::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim));
+}
+
+.ornament-center::after {
+  background: linear-gradient(90deg, var(--gold-dim), transparent);
+}
+
+/* ── CARDS Y SUPERFICIES ────────────────────────────────────────────────── */
+.arcane-card {
+  background: var(--parchment-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: 1px; /* casi sin radio — esquinas del manuscrito */
+  box-shadow: var(--shadow-vela);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Resplandor sutil en la esquina superior — luz de vela */
+.arcane-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,168,74,.2), transparent);
+}
+
+.arcane-card-raised {
+  background: var(--parchment-raised);
+  border: 1px solid var(--border-faint);
+  border-radius: 1px;
+}
+
+/* ── BOTONES ────────────────────────────────────────────────────────────── */
+.btn-arcane {
+  font-family: 'EB Garamond', serif;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  color: var(--gold-bright);
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  padding: .55rem 1.3rem;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+  border-radius: 1px;
+}
+
+.btn-arcane:hover {
+  background: var(--gold-trace);
+  border-color: var(--gold-bright);
+}
+
+.btn-arcane-primary {
+  background: var(--gold-trace);
+  border-color: rgba(200,168,74,.4);
+}
+
+.btn-arcane-primary:hover {
+  background: rgba(200,168,74,.2);
+}
+
+/* ── INPUTS ─────────────────────────────────────────────────────────────── */
+.input-arcane {
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--border-faint);
+  border-radius: 1px;
+  color: var(--ink-primary);
+  font-family: 'EB Garamond', serif;
+  font-size: .95rem;
+  padding: .55rem .8rem;
+  outline: none;
+  transition: border-color .2s;
+  width: 100%;
+}
+
+.input-arcane:focus {
+  border-color: rgba(200,168,74,.35);
+}
+
+.input-arcane::placeholder {
+  color: var(--ink-ghost);
+  font-style: italic;
+}
+
+.select-arcane {
+  appearance: none;
+  background: rgba(255,255,255,.025) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239b7d2e'/%3E%3C/svg%3E") no-repeat right .8rem center;
+  border: 1px solid var(--border-faint);
+  border-radius: 1px;
+  color: var(--ink-primary);
+  font-family: 'EB Garamond', serif;
+  font-size: .9rem;
+  padding: .55rem 2rem .55rem .8rem;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.select-arcane option {
+  background: var(--parchment-mid);
+}
+
+/* ── CHECKBOXES ARCANOS ──────────────────────────────────────────────────── */
+.seal {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-dim);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .25s;
+}
+
+.seal:hover {
+  border-color: var(--gold-bright);
+  background: var(--gold-trace);
+}
+
+.seal.sealed {
+  background: var(--seal-done);
+  border-color: var(--seal-done);
+  box-shadow: 0 0 8px rgba(58,122,82,.3);
+}
+
+.seal-mark {
+  font-size: .6rem;
+  color: transparent;
+}
+
+.seal.sealed .seal-mark {
+  color: #c8e6c9;
+}
+
+/* ── PROGRESO Y ANILLOS ──────────────────────────────────────────────────── */
+.progress-track {
+  height: 2px;
+  background: var(--border-ghost);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold-bright));
+  transition: width .6s ease;
+}
+
+/* ── TABS DE NAVEGACIÓN ──────────────────────────────────────────────────── */
+.arcane-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-faint);
+  gap: 0;
+}
+
+.arcane-tab {
+  padding: .7rem 1.1rem;
+  font-family: 'EB Garamond', serif;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  color: var(--ink-faint);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  white-space: nowrap;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.arcane-tab:hover { color: var(--ink-secondary); }
+
+.arcane-tab.active {
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold-bright);
+}
+
+/* ── STATES ─────────────────────────────────────────────────────────────── */
+.empty-tome {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-ghost);
+  border: 1px dashed var(--border-ghost);
+  border-radius: 1px;
+}
+
+/* ── UTILIDADES ──────────────────────────────────────────────────────────── */
+.gap-xs { gap: .35rem; }
+.gap-sm { gap: .6rem; }
+.gap-md { gap: 1rem; }
+.gap-lg { gap: 1.5rem; }
+
+.flex        { display: flex; }
+.flex-col    { flex-direction: column; }
+.items-start { align-items: flex-start; }
+.items-center{ align-items: center; }
+.justify-between { justify-content: space-between; }
+.flex-1      { flex: 1; }
+.flex-wrap   { flex-wrap: wrap; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+/* ── SCROLLBAR ARCANA ────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--parchment-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-mid); }
+
+/* ── REDUCIR MOVIMIENTO ──────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}

@@ -1,0 +1,93 @@
+/* SanctumHome.module.css */
+
+.sanctum { min-height: 100vh; }
+
+/* HERO */
+.hero {
+  background: radial-gradient(ellipse 80% 60% at 50% 30%, #1a1030 0%, #0d0b07 70%);
+  border-bottom: 1px solid rgba(200,168,74,.1);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.heroSymbol {
+  font-size: 3rem; margin-bottom: 1rem;
+  filter: drop-shadow(0 0 20px rgba(200,168,74,.4));
+  display: block;
+}
+.heroEye {
+  font-size: .6rem; letter-spacing: .28em; text-transform: uppercase;
+  color: #9b7d2e; margin-bottom: .8rem; font-family: 'EB Garamond', serif;
+}
+.heroTitle {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,7vw,5rem);
+  font-weight: 300; color: #e8dcc8; line-height: 1.05; margin-bottom: .5rem;
+}
+.heroTitle em { font-style: italic; color: #c8a84a; }
+.heroMotto {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: clamp(.9rem,2vw,1.1rem); color: rgba(184,168,130,.38);
+  margin-bottom: 2rem;
+}
+.heroRule {
+  width: 50px; height: 1px;
+  background: linear-gradient(90deg,transparent,#9b7d2e,transparent);
+  margin: 0 auto 2.5rem;
+}
+
+/* Anillos */
+.rings { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+.ring  { display: flex; flex-direction: column; align-items: center; gap: .4rem; position: relative; }
+.ringCenter {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-56%);
+  text-align: center;
+}
+.ringVal { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #c8a84a; line-height: 1; }
+.ringLabel { font-size: .56rem; letter-spacing: .15em; text-transform: uppercase; color: #6b5520; font-family: 'EB Garamond', serif; }
+
+/* WRAP */
+.wrap { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+/* Chips */
+.chips { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.chip  {
+  border: 1px solid rgba(200,168,74,.1); border-radius: 1px;
+  padding: .7rem 1.1rem; text-align: center;
+  background: rgba(26,21,9,.6); min-width: 90px;
+}
+.chipN { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #c8a84a; display: block; line-height: 1; }
+.chipL { font-size: .56rem; letter-spacing: .1em; text-transform: uppercase; color: #3d3424; display: block; margin-top: .2rem; font-family: 'EB Garamond', serif; }
+
+/* Secciones */
+.section { margin-bottom: 2.5rem; }
+.sectionEye { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: #9b7d2e; margin-bottom: .5rem; font-family: 'EB Garamond', serif; }
+.sectionTitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem,3.5vw,2.2rem); font-weight: 300; color: #e8dcc8; margin-bottom: 1.2rem; }
+.sectionTitle em { font-style: italic; color: #c8a84a; }
+
+/* Tool cards */
+.toolsGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: .8rem; }
+.tool {
+  border: 1px solid rgba(200,168,74,.1); border-radius: 1px;
+  padding: 1.1rem; background: rgba(26,21,9,.6);
+  cursor: pointer; text-align: left; transition: all .2s;
+  display: grid; grid-template-areas: "icon name arrow" "icon desc arrow";
+  grid-template-columns: auto 1fr auto; column-gap: .7rem; row-gap: .1rem; align-items: center;
+}
+.tool:hover { border-color: rgba(200,168,74,.3); background: rgba(200,168,74,.04); transform: translateY(-1px); }
+.toolIcon   { grid-area: icon; font-size: 1.5rem; }
+.toolName   { grid-area: name; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: #e8dcc8; }
+.toolDesc   { grid-area: desc; font-size: .68rem; color: #6b5e45; font-family: 'EB Garamond', serif; }
+.toolArrow  { grid-area: arrow; color: #6b5520; font-size: .8rem; transition: transform .2s; }
+.tool:hover .toolArrow { transform: translateX(3px); }
+
+/* Plan semanal */
+.weekGrid { display: grid; grid-template-columns: repeat(7,1fr); gap: .4rem; }
+@media(max-width:700px) { .weekGrid { grid-template-columns: repeat(2,1fr); } }
+.dayCol { border: 1px solid rgba(200,168,74,.07); border-radius: 1px; overflow: hidden; background: rgba(26,21,9,.4); }
+.todayCol { border-color: rgba(200,168,74,.3); }
+.dayHead { padding: .45rem .6rem; background: rgba(0,0,0,.2); border-bottom: 1px solid rgba(200,168,74,.06); }
+.dayName { font-size: .62rem; font-weight: 500; color: rgba(184,168,130,.45); display: block; font-family: 'EB Garamond', serif; }
+.todayCol .dayName { color: #c8a84a; }
+.dayDate { font-size: .55rem; color: #3d3424; font-family: 'EB Garamond', serif; }
+.dayTasks { padding: .5rem .6rem; display: flex; flex-direction: column; gap: .3rem; }
+.dayTask { font-size: .67rem; color: rgba(184,168,130,.38); border-left: 2px solid rgba(200,168,74,.15); padding-left: .4rem; line-height: 1.4; font-family: 'EB Garamond', serif; }
+.todayCol .dayTask { border-left-color: #9b7d2e; color: rgba(184,168,130,.6); }

@@ -1,0 +1,38 @@
+/* StoicPortico.module.css */
+.wrap{min-height:100vh;}
+.header{text-align:center;padding:3rem 2rem 2rem;border-bottom:1px solid rgba(200,168,74,.1);background:radial-gradient(ellipse 70% 50% at 50% 0%,#1a1509 0%,transparent 70%);}
+.eye{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:#9b7d2e;margin-bottom:.5rem;font-family:'EB Garamond',serif;}
+.title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:300;color:#e8dcc8;margin-bottom:.4rem;}
+.title em{font-style:italic;color:#c8a84a;}
+.sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:rgba(184,168,130,.35);max-width:480px;margin:0 auto;}
+.inner{max-width:820px;margin:0 auto;padding:2rem 1.5rem 5rem;}
+.tabs{display:flex;border-bottom:1px solid rgba(200,168,74,.1);margin-bottom:1.5rem;}
+.tab{padding:.65rem 1rem;font-family:'EB Garamond',serif;font-size:.75rem;letter-spacing:.1em;color:rgba(184,168,130,.3);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;}
+.tab:hover{color:rgba(184,168,130,.7);}
+.tabActive{color:#c8a84a;border-bottom-color:#c8a84a;}
+.fcFilter{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1.1rem;}
+.fcBtn{border:1px solid rgba(200,168,74,.1);border-radius:1px;padding:.25rem .55rem;background:transparent;color:rgba(232,220,200,.35);cursor:pointer;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;font-family:'EB Garamond',serif;}
+.fcBtnActive{border-color:#c8a84a;color:#c8a84a;background:rgba(200,168,74,.06);}
+.fcFace{position:absolute;width:100%;min-height:200px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid rgba(200,168,74,.12);border-radius:1px;padding:1.8rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.fcFront{background:rgba(26,21,9,.6);}
+.fcBack{background:rgba(200,168,74,.03);border-color:rgba(200,168,74,.2);}
+.fcAuthor{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#9b7d2e;margin-bottom:.6rem;font-family:'EB Garamond',serif;}
+.fcObra{font-size:.65rem;color:#3d3424;margin-bottom:.9rem;font-style:italic;font-family:'EB Garamond',serif;}
+.fcContent{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:#e8dcc8;line-height:1.6;max-width:500px;}
+.fcHint{font-size:.6rem;color:#3d3424;margin-top:.9rem;font-family:'EB Garamond',serif;}
+.fcNav{display:flex;gap:.7rem;justify-content:center;align-items:center;margin-bottom:1rem;}
+.fcNavBtn{border:1px solid rgba(200,168,74,.1);border-radius:1px;padding:.42rem .9rem;background:transparent;color:#e8dcc8;cursor:pointer;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;font-family:'EB Garamond',serif;}
+.fcNavBtn:hover{border-color:#c8a84a;color:#c8a84a;}
+.fcCtr{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:#6b5e45;}
+.pracGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
+.pracCard{border:1px solid rgba(200,168,74,.1);border-radius:1px;padding:1.3rem;background:rgba(26,21,9,.6);}
+.pracIcon{font-size:1.5rem;margin-bottom:.5rem;}
+.pracTitle{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:#c8a84a;margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid rgba(200,168,74,.08);}
+.pracItem{display:flex;gap:.6rem;margin-bottom:.6rem;}
+.pracNum{font-family:'Cormorant Garamond',serif;font-size:1rem;color:#9b7d2e;min-width:18px;line-height:1.5;}
+.pracText{font-size:.78rem;color:rgba(232,220,200,.5);line-height:1.65;font-family:'EB Garamond',serif;}
+.virtGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;}
+.virtCard{border:1px solid rgba(200,168,74,.1);border-radius:1px;padding:1.2rem;background:rgba(26,21,9,.6);}
+.virtIcon{font-size:1.5rem;display:block;margin-bottom:.5rem;}
+.virtName{font-family:'Cormorant Garamond',serif;font-size:1rem;color:#e8dcc8;margin-bottom:.4rem;}
+.virtDesc{font-size:.78rem;color:#6b5e45;line-height:1.6;font-family:'EB Garamond',serif;}
